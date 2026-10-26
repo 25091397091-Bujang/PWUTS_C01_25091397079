@@ -1,0 +1,57 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 360" width="600" height="360">
+  <defs>
+    <linearGradient id="bgGrad7" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#ecfeff" />
+      <stop offset="100%" stop-color="#f8fafc" />
+    </linearGradient>
+    <linearGradient id="carBody7" x1="0%" y1="30%" x2="100%" y2="70%">
+      <stop offset="0%" stop-color="#e2e8f0" />
+      <stop offset="100%" stop-color="#94a3b8" />
+    </linearGradient>
+    <linearGradient id="glassGrad7" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#38bdf8" stop-opacity="0.85" />
+      <stop offset="100%" stop-color="#0284c7" stop-opacity="0.95" />
+    </linearGradient>
+    <filter id="shadow7" x="-10%" y="-10%" width="120%" height="130%">
+      <feDropShadow dx="0" dy="10" stdDeviation="8" flood-color="#0f172a" flood-opacity="0.25" />
+    </filter>
+  </defs>
+
+  <rect width="600" height="360" rx="16" fill="url(#bgGrad7)"/>
+  <rect x="30" y="24" width="165" height="28" rx="14" fill="#0891b2" opacity="0.15" />
+  <text x="42" y="43" font-family="'Segoe UI', Roboto, sans-serif" font-size="12" font-weight="800" fill="#0891b2" letter-spacing="1">HYBRID MPV</text>
+  
+  <rect x="440" y="24" width="130" height="28" rx="14" fill="#dcfce7" />
+  <circle cx="456" cy="38" r="5" fill="#16a34a" />
+  <text x="468" y="43" font-family="'Segoe UI', Roboto, sans-serif" font-size="11" font-weight="700" fill="#15803d">TERSEDIA</text>
+
+  <ellipse cx="300" cy="275" rx="220" ry="16" fill="#64748b" opacity="0.35" />
+  
+  <g filter="url(#shadow7)">
+    <path d="M 95 235 C 90 215, 100 195, 130 190 L 185 180 C 215 135, 260 115, 335 115 L 415 115 C 455 115, 485 150, 505 185 L 515 210 C 525 223, 520 243, 500 247 L 450 247 C 445 215, 415 190, 380 190 C 345 190, 315 215, 310 247 L 210 247 C 205 215, 175 190, 140 190 C 105 190, 75 215, 70 247 Z" fill="url(#carBody7)" stroke="#64748b" stroke-width="2" />
+    <path d="M 215 175 L 245 130 C 255 125, 280 125, 335 125 L 405 125 C 435 125, 455 145, 475 175 Z" fill="url(#glassGrad7)" />
+    <line x1="330" y1="125" x2="325" y2="175" stroke="#1e293b" stroke-width="4" />
+    
+    <rect x="345" y="202" width="28" height="6" rx="3" fill="#334155" />
+    <polygon points="500,200 518,207 512,223 495,219" fill="#fef08a" stroke="#0891b2" stroke-width="1.5" />
+    <path d="M 100 207 L 115 205 L 112 225 L 96 221 Z" fill="#ef4444" />
+    <path d="M 480 233 L 515 235 C 518 243, 510 247, 498 247 Z" fill="#06b6d4" />
+
+    <g transform="translate(380, 247)">
+      <circle cx="0" cy="0" r="36" fill="#1e293b" />
+      <circle cx="0" cy="0" r="24" fill="#64748b" stroke="#cbd5e1" stroke-width="3" />
+      <circle cx="0" cy="0" r="12" fill="#334155" />
+      <circle cx="0" cy="0" r="5" fill="#06b6d4" />
+    </g>
+    <g transform="translate(140, 247)">
+      <circle cx="0" cy="0" r="36" fill="#1e293b" />
+      <circle cx="0" cy="0" r="24" fill="#64748b" stroke="#cbd5e1" stroke-width="3" />
+      <circle cx="0" cy="0" r="12" fill="#334155" />
+      <circle cx="0" cy="0" r="5" fill="#06b6d4" />
+    </g>
+  </g>
+
+  <rect x="30" y="298" width="540" height="40" rx="8" fill="#ffffff" opacity="0.95" stroke="#e2e8f0" stroke-width="1" />
+  <text x="45" y="323" font-family="'Segoe UI', Roboto, sans-serif" font-size="14" font-weight="700" fill="#1e293b">Suzuki Ertiga Hybrid</text>
+  <text x="555" y="323" font-family="'Segoe UI', Roboto, sans-serif" font-size="12" font-weight="600" fill="#64748b" text-anchor="end">7 Penumpang • Hybrid • Manual</text>
+</svg>

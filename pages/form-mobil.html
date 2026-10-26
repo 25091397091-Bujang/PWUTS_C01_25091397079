@@ -1,0 +1,449 @@
+<!-- ===================================================================
+     HALAMAN ITEM 2.C: FORM DATA MOBIL ADMIN (WF-8 PROPOSAL)
+     Tambah Data Mobil Baru & Validasi Input JavaScript/jQuery
+     Pengerjaan Anggota 3: Aby Putra Mahendra (NIM: 25091397079)
+     =================================================================== -->
+
+<div class="ajax-fade-in py-4">
+  <div class="container">
+    <!-- Breadcrumb & Navigasi -->
+    <nav aria-label="breadcrumb">
+      <ol class="breadcrumb">
+        <li class="breadcrumb-item"><a href="#beranda" class="ajax-link" data-page="home-content">Beranda</a></li>
+        <li class="breadcrumb-item active" aria-current="page">Form Data Mobil Admin (Item 2.c)</li>
+      </ol>
+    </nav>
+
+    <!-- Header Section Admin -->
+    <div class="d-flex justify-content-between align-items-center mb-4 flex-wrap gap-2">
+      <div>
+        <div class="d-flex align-items-center gap-2 mb-1">
+          <span class="badge bg-dark text-white px-3 py-1 rounded-pill">ADMIN PANEL • AUTORENT</span>
+          <span class="badge bg-primary text-white px-3 py-1 rounded-pill">Item 2.c &amp; WF-08</span>
+        </div>
+        <h2 class="h3 fw-bold text-dark mb-1">Manajemen &amp; Tambah Data Mobil</h2>
+        <p class="text-muted small mb-0">
+          Kelola inventaris armada rental mobil sesuai skema basis data tabel <code>vehicles</code> dan <code>categories</code> proposal.
+        </p>
+      </div>
+      <div>
+        <a href="#tabel-armada-section" class="btn btn-outline-primary btn-sm fw-bold">
+          <i class="bi bi-list-columns-reverse me-1"></i> Lihat Tabel Data Mobil (<span id="admin-total-car-count">8</span>)
+        </a>
+      </div>
+    </div>
+
+    <!-- Alert Info Bisnis Rules Proposal (BR-013, BR-014, FR-VEH-005) -->
+    <div class="alert alert-light border shadow-sm rounded-4 p-3 mb-4">
+      <div class="d-flex align-items-center gap-3">
+        <i class="bi bi-shield-lock-fill text-primary fs-3"></i>
+        <div class="small">
+          <strong>Aturan Bisnis Proposal (BR-013 &amp; FR-VEH-006):</strong> 
+          Data kendaraan yang telah memiliki histori booking di sistem tidak dapat dihapus permanen untuk integritas data keuangan, namun statusnya dapat diubah menjadi <em>Unavailable</em>. Form ini dilengkapi validasi client-side sebelum data disubmit ke server.
+        </div>
+      </div>
+    </div>
+
+    <div class="row g-4">
+      <!-- FORM TAMBAH DATA MOBIL -->
+      <div class="col-lg-7">
+        <div class="admin-card">
+          <div class="admin-header d-flex justify-content-between align-items-center">
+            <div>
+              <h5 class="fw-bold mb-0 text-white">
+                <i class="bi bi-plus-square-fill text-warning me-2"></i> Formulir Tambah Mobil Baru
+              </h5>
+              <div class="text-white-50 small">Lengkapi atribut kendaraan sesuai spesifikasi tabel <code>vehicles</code></div>
+            </div>
+            <span class="badge bg-warning text-dark fw-bold">Validasi Aktif</span>
+          </div>
+
+          <form id="form-tambah-mobil" novalidate class="p-4">
+            
+            <!-- Row 1: Nama Mobil & Kategori -->
+            <div class="row g-3 mb-3">
+              <div class="col-md-7">
+                <label for="car-name" class="form-label-custom">
+                  Nama Kendaraan <span class="req">*</span>
+                </label>
+                <input 
+                  type="text" 
+                  id="car-name" 
+                  name="name" 
+                  class="form-control form-control-custom" 
+                  placeholder="Contoh: Toyota Avanza 1.3 G"
+                  required
+                />
+                <div class="invalid-feedback-custom" id="err-car-name">
+                  Nama kendaraan wajib diisi (minimal 4 karakter).
+                </div>
+                <div class="valid-feedback-custom">
+                  <i class="bi bi-check2-circle"></i> Nama kendaraan valid.
+                </div>
+              </div>
+
+              <div class="col-md-5">
+                <label for="car-category" class="form-label-custom">
+                  Kategori Kendaraan <span class="req">*</span>
+                </label>
+                <select id="car-category" name="category_id" class="form-select form-select-custom" required>
+                  <option value="">-- Pilih Kategori --</option>
+                  <option value="1">1 - MPV Keluarga</option>
+                  <option value="2">2 - SUV Tangguh</option>
+                  <option value="3">3 - City Car Ringkas</option>
+                  <option value="4">4 - Sedan Premium</option>
+                </select>
+                <div class="invalid-feedback-custom" id="err-car-category">
+                  Kategori kendaraan wajib dipilih.
+                </div>
+                <div class="valid-feedback-custom">
+                  <i class="bi bi-check2-circle"></i> Kategori terpilih.
+                </div>
+              </div>
+            </div>
+
+            <!-- Row 2: Plat Nomor & Tarif Sewa 24 Jam -->
+            <div class="row g-3 mb-3">
+              <div class="col-md-6">
+                <label for="car-plate" class="form-label-custom">
+                  Nomor Polisi / Plat Nomor <span class="req">*</span>
+                </label>
+                <div class="input-group">
+                  <span class="input-group-text bg-light text-muted font-monospace"><i class="bi bi-card-text"></i></span>
+                  <input 
+                    type="text" 
+                    id="car-plate" 
+                    name="plate" 
+                    class="form-control form-control-custom font-monospace text-uppercase" 
+                    placeholder="Contoh: L 1284 PDA"
+                    required
+                  />
+                </div>
+                <div class="invalid-feedback-custom" id="err-car-plate">
+                  Format plat nomor tidak valid (contoh: L 1284 PDA atau B 2341 UTY).
+                </div>
+                <div class="valid-feedback-custom">
+                  <i class="bi bi-check2-circle"></i> Plat nomor valid.
+                </div>
+              </div>
+
+              <div class="col-md-6">
+                <label for="car-price" class="form-label-custom">
+                  Tarif Sewa (per 24 Jam) <span class="req">*</span>
+                </label>
+                <div class="input-group">
+                  <span class="input-group-text bg-light fw-bold text-muted">Rp</span>
+                  <input 
+                    type="number" 
+                    id="car-price" 
+                    name="price_per_day" 
+                    class="form-control form-control-custom" 
+                    placeholder="350000"
+                    min="100000"
+                    step="10000"
+                    required
+                  />
+                </div>
+                <div class="form-text small" id="price-formatted-preview">Format nominal: Rp 0</div>
+                <div class="invalid-feedback-custom" id="err-car-price">
+                  Tarif sewa wajib diisi angka minimal Rp 100.000 / 24 jam.
+                </div>
+                <div class="valid-feedback-custom">
+                  <i class="bi bi-check2-circle"></i> Tarif sewa valid.
+                </div>
+              </div>
+            </div>
+
+            <!-- Row 3: Kapasitas Penumpang, Transmisi & Status -->
+            <div class="row g-3 mb-3">
+              <div class="col-md-4">
+                <label for="car-capacity" class="form-label-custom">
+                  Kapasitas <span class="req">*</span>
+                </label>
+                <div class="input-group">
+                  <input 
+                    type="number" 
+                    id="car-capacity" 
+                    name="capacity" 
+                    class="form-control form-control-custom" 
+                    placeholder="7"
+                    min="2"
+                    max="15"
+                    required
+                  />
+                  <span class="input-group-text bg-light text-muted small">Orang</span>
+                </div>
+                <div class="invalid-feedback-custom" id="err-car-capacity">
+                  Kapasitas harus antara 2 s/d 15 orang.
+                </div>
+                <div class="valid-feedback-custom">
+                  <i class="bi bi-check2-circle"></i> Kapasitas valid.
+                </div>
+              </div>
+
+              <div class="col-md-4">
+                <label for="car-transmission" class="form-label-custom">
+                  Transmisi <span class="req">*</span>
+                </label>
+                <select id="car-transmission" name="transmission" class="form-select form-select-custom" required>
+                  <option value="">-- Pilih --</option>
+                  <option value="Manual">Manual</option>
+                  <option value="Otomatis (CVT/AT)">Otomatis (CVT/AT)</option>
+                </select>
+                <div class="invalid-feedback-custom" id="err-car-transmission">
+                  Pilih transmisi kendaraan.
+                </div>
+                <div class="valid-feedback-custom">
+                  <i class="bi bi-check2-circle"></i> Transmisi valid.
+                </div>
+              </div>
+
+              <div class="col-md-4">
+                <label for="car-status" class="form-label-custom">
+                  Status Awal <span class="req">*</span>
+                </label>
+                <select id="car-status" name="status" class="form-select form-select-custom" required>
+                  <option value="Available">Available (Tersedia)</option>
+                  <option value="Unavailable">Unavailable</option>
+                </select>
+                <div class="invalid-feedback-custom" id="err-car-status">
+                  Status harus dipilih.
+                </div>
+                <div class="valid-feedback-custom">
+                  <i class="bi bi-check2-circle"></i> Status valid.
+                </div>
+              </div>
+            </div>
+
+            <!-- Row 4: Pilihan Foto Kendaraan (Upload File / Preset) -->
+            <div class="mb-3">
+              <label class="form-label-custom">
+                Foto Kendaraan <span class="req">*</span>
+              </label>
+              
+              <div class="btn-group w-100 mb-2" role="group">
+                <input type="radio" class="btn-check" name="photo-method" id="method-preset" value="preset" checked>
+                <label class="btn btn-outline-secondary btn-sm fw-bold" for="method-preset">
+                  <i class="bi bi-images me-1"></i> Pilih dari Preset Vektor Autorent
+                </label>
+
+                <input type="radio" class="btn-check" name="photo-method" id="method-upload" value="upload">
+                <label class="btn btn-outline-secondary btn-sm fw-bold" for="method-upload">
+                  <i class="bi bi-cloud-arrow-up me-1"></i> Unggah File dari Komputer
+                </label>
+              </div>
+
+              <!-- Pilihan Preset Gambar -->
+              <div id="box-preset-select" class="mb-2">
+                <select id="car-photo-preset" class="form-select form-select-custom">
+                  <option value="assets/images/avanza.svg">Siluet Modern Avanza (MPV Silver)</option>
+                  <option value="assets/images/zenix.svg">Siluet Premium Zenix (Luxury White)</option>
+                  <option value="assets/images/brio.svg">Siluet City Car Brio (Yellow Energetic)</option>
+                  <option value="assets/images/pajero.svg">Siluet Big SUV Pajero (Dark Obsidian)</option>
+                  <option value="assets/images/fortuner.svg">Siluet Sport SUV Fortuner GR (Red Sport)</option>
+                  <option value="assets/images/xenia.svg">Siluet MPV Xenia (Metallic Grey)</option>
+                  <option value="assets/images/ertiga.svg">Siluet Hybrid Ertiga (Smart Cyan)</option>
+                  <option value="assets/images/stargazer.svg">Siluet Futuristic Stargazer (Cyber Violet)</option>
+                  <option value="assets/images/default-car.svg">Siluet Armada Umum Autorent (Blue Signature)</option>
+                </select>
+              </div>
+
+              <!-- Pilihan Upload Berkas Lokal -->
+              <div id="box-upload-input" class="mb-2 d-none">
+                <input type="file" id="car-photo-file" class="form-control form-control-custom" accept="image/png, image/jpeg, image/jpg, image/webp" />
+                <div class="form-text small text-muted">Format file yang diperbolehkan: JPG, PNG, WEBP (Maksimal 5MB).</div>
+              </div>
+
+              <div class="invalid-feedback-custom" id="err-car-photo">
+                Foto kendaraan wajib dipilih atau diunggah.
+              </div>
+            </div>
+
+            <!-- Row 5: Deskripsi Kendaraan -->
+            <div class="mb-4">
+              <label for="car-desc" class="form-label-custom">
+                Deskripsi &amp; Fasilitas Unit <span class="req">*</span>
+              </label>
+              <textarea 
+                id="car-desc" 
+                name="description" 
+                rows="3" 
+                class="form-control form-control-custom" 
+                placeholder="Jelaskan kondisi mesin, kebersihan interior, fitur AC double blower, SRS airbag, audio bluetooth, servis resmi, dll. (Minimal 20 karakter)"
+                required
+              ></textarea>
+              <div class="d-flex justify-content-between align-items-center mt-1">
+                <div class="invalid-feedback-custom" id="err-car-desc">
+                  Deskripsi wajib diisi minimal 20 karakter.
+                </div>
+                <div class="valid-feedback-custom">
+                  <i class="bi bi-check2-circle"></i> Deskripsi memenuhi syarat.
+                </div>
+                <span class="small text-muted ms-auto" id="desc-char-count">0 / 20 min</span>
+              </div>
+            </div>
+
+            <!-- Tombol Aksi Form -->
+            <div class="d-flex justify-content-end gap-2 pt-2 border-top">
+              <button type="reset" id="btn-reset-car-form" class="btn btn-outline-secondary fw-bold px-3">
+                <i class="bi bi-arrow-counterclockwise me-1"></i> Kosongkan Form
+              </button>
+              <button type="submit" id="btn-submit-car" class="btn btn-primary fw-bold px-4">
+                <i class="bi bi-check-circle-fill me-1"></i> Simpan Data Mobil
+              </button>
+            </div>
+          </form>
+        </div>
+      </div>
+
+      <!-- LIVE PREVIEW KARTU MOBIL -->
+      <div class="col-lg-5">
+        <div class="sticky-top" style="top: 20px;">
+          <div class="card border-0 shadow-sm rounded-4 overflow-hidden mb-4">
+            <div class="card-header bg-light border-bottom p-3 d-flex justify-content-between align-items-center">
+              <span class="fw-bold small text-muted">
+                <i class="bi bi-eye-fill me-1"></i> LIVE PREVIEW KARTU KATALOG
+              </span>
+              <span class="badge bg-info text-dark font-monospace">Realtime Sync</span>
+            </div>
+            
+            <div class="p-3">
+              <div class="vehicle-card shadow-sm border">
+                <div class="vehicle-img-wrapper">
+                  <span class="vehicle-category-badge" id="preview-category-badge">MPV</span>
+                  <span class="vehicle-status-badge badge-available" id="preview-status-badge">Available</span>
+                  <img id="preview-car-image" src="assets/images/avanza.svg" alt="Preview Mobil" class="vehicle-img" />
+                </div>
+                <div class="vehicle-body">
+                  <h4 class="vehicle-title" id="preview-car-name">Nama Kendaraan</h4>
+                  <div class="small text-muted font-monospace mb-2" id="preview-car-plate">Plat: [L XXXX XX]</div>
+                  <div class="vehicle-specs">
+                    <span id="preview-spec-cap"><i class="bi bi-people-fill text-primary"></i> 7 Kursi</span>
+                    <span id="preview-spec-trans"><i class="bi bi-gear-fill text-secondary"></i> Manual</span>
+                    <span><i class="bi bi-shield-check text-success"></i> Terawat</span>
+                  </div>
+                  <p class="small text-muted text-truncate mb-3" id="preview-car-desc">
+                    Deskripsi unit kendaraan akan muncul secara otomatis di sini saat Anda mengetik di formulir.
+                  </p>
+                  <div class="vehicle-price-box">
+                    <div>
+                      <span class="price-nominal" id="preview-car-price">Rp 350.000</span>
+                      <span class="price-unit">/ 24 jam</span>
+                    </div>
+                    <button class="btn btn-sm btn-outline-primary fw-bold disabled">Simulasi Detail</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Card Informasi Endpoint HTTP Database -->
+          <div class="card border-0 bg-primary bg-opacity-10 rounded-4 p-3 border-primary">
+            <div class="d-flex align-items-start gap-2">
+              <i class="bi bi-hdd-network-fill text-primary fs-4 mt-1"></i>
+              <div class="small">
+                <strong class="text-dark">Simulasi HTTP Server &amp; Database:</strong>
+                <p class="text-muted mb-1 mt-1">
+                  Saat tombol <strong>Simpan Data Mobil</strong> diklik, sistem mengeksekusi validasi JavaScript. Bila lolos, data dipaketkan ke dalam payload JSON dan disimulasikan ke endpoint HTTP backend (tabel <code>vehicles</code>), lalu langsung tersimpan di LocalStorage &amp; tabel master di bawah.
+                </p>
+                <div class="font-monospace text-primary small">POST /api/vehicles/store.php (HTTP 200 OK)</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- TABEL DATA MOBIL ADMIN (SESUAI WF-8 PROPOSAL HALAMAN 39) -->
+    <div class="mt-5" id="tabel-armada-section">
+      <div class="admin-card">
+        <div class="admin-header d-flex justify-content-between align-items-center flex-wrap gap-2">
+          <div>
+            <h4 class="h5 fw-bold mb-0 text-white">
+              <i class="bi bi-table text-warning me-2"></i> Master Data Armada Kendaraan
+            </h4>
+            <div class="text-white-50 small">Inventaris unit rental dan pengelolaan status ketersediaan armada</div>
+          </div>
+          <div class="d-flex align-items-center gap-2">
+            <input type="text" id="admin-table-search" class="form-control form-control-sm" placeholder="Cari nama / plat..." style="width: 200px;" />
+            <select id="admin-table-filter-status" class="form-select form-select-sm" style="width: 150px;">
+              <option value="">Semua Status</option>
+              <option value="Available">Available</option>
+              <option value="Unavailable">Unavailable</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="table-responsive">
+          <table class="table table-hover table-custom" id="table-admin-vehicles">
+            <thead>
+              <tr>
+                <th style="width: 50px;">ID</th>
+                <th style="width: 80px;">Foto</th>
+                <th>Nama Kendaraan &amp; Plat</th>
+                <th>Kategori</th>
+                <th>Tarif / 24 Jam</th>
+                <th>Status</th>
+                <th class="text-center" style="width: 170px;">Aksi Admin</th>
+              </tr>
+            </thead>
+            <tbody id="admin-vehicles-tbody">
+              <!-- Rendered via JavaScript -->
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<!-- Modal Konfirmasi Submit Data Mobil -->
+<div class="modal fade" id="modalConfirmSubmitCar" tabindex="-1" aria-labelledby="modalConfirmSubmitCarLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content border-0 shadow-lg rounded-4">
+      <div class="modal-header bg-primary text-white">
+        <h5 class="modal-title fw-bold" id="modalConfirmSubmitCarLabel">
+          <i class="bi bi-check2-circle me-2"></i> Konfirmasi Tambah Armada Mobil
+        </h5>
+        <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body p-4">
+        <p class="text-muted small mb-3">Seluruh input telah lolos validasi JavaScript/jQuery. Pastikan detail armada berikut telah sesuai sebelum disimpan ke basis data:</p>
+        
+        <div class="bg-light p-3 rounded-3 border mb-3">
+          <div class="d-flex justify-content-between mb-2">
+            <span class="small text-muted">Nama Mobil:</span>
+            <span class="small fw-bold text-dark" id="modal-conf-name">-</span>
+          </div>
+          <div class="d-flex justify-content-between mb-2">
+            <span class="small text-muted">Kategori:</span>
+            <span class="small fw-bold text-dark" id="modal-conf-cat">-</span>
+          </div>
+          <div class="d-flex justify-content-between mb-2">
+            <span class="small text-muted">Nomor Polisi:</span>
+            <span class="small fw-bold text-dark font-monospace" id="modal-conf-plate">-</span>
+          </div>
+          <div class="d-flex justify-content-between mb-2">
+            <span class="small text-muted">Tarif Sewa (24 Jam):</span>
+            <span class="small fw-bold text-primary" id="modal-conf-price">-</span>
+          </div>
+          <div class="d-flex justify-content-between mb-2">
+            <span class="small text-muted">Kapasitas &amp; Transmisi:</span>
+            <span class="small fw-bold text-dark" id="modal-conf-spec">-</span>
+          </div>
+          <div class="d-flex justify-content-between">
+            <span class="small text-muted">Status Awal:</span>
+            <span class="small fw-bold" id="modal-conf-status">-</span>
+          </div>
+        </div>
+      </div>
+      <div class="modal-footer bg-light">
+        <button type="button" class="btn btn-secondary fw-bold" data-bs-dismiss="modal">Koreksi Kembali</button>
+        <button type="button" id="btn-final-confirm-save" class="btn btn-primary fw-bold px-4">
+          <i class="bi bi-save2-fill me-1"></i> Ya, Simpan ke Database
+        </button>
+      </div>
+    </div>
+  </div>
+</div>

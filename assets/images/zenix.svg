@@ -1,0 +1,64 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 360" width="600" height="360">
+  <defs>
+    <linearGradient id="bgGrad2" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#f0fdf4" />
+      <stop offset="100%" stop-color="#e2e8f0" />
+    </linearGradient>
+    <linearGradient id="carBody2" x1="0%" y1="30%" x2="100%" y2="70%">
+      <stop offset="0%" stop-color="#ffffff" />
+      <stop offset="100%" stop-color="#cbd5e1" />
+    </linearGradient>
+    <linearGradient id="glassGrad2" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#0284c7" stop-opacity="0.85" />
+      <stop offset="100%" stop-color="#0f172a" stop-opacity="0.95" />
+    </linearGradient>
+    <filter id="shadow2" x="-10%" y="-10%" width="120%" height="130%">
+      <feDropShadow dx="0" dy="10" stdDeviation="8" flood-color="#0f172a" flood-opacity="0.25" />
+    </filter>
+  </defs>
+
+  <rect width="600" height="360" rx="16" fill="url(#bgGrad2)"/>
+  <rect x="30" y="24" width="165" height="28" rx="14" fill="#059669" opacity="0.15" />
+  <text x="42" y="43" font-family="'Segoe UI', Roboto, sans-serif" font-size="12" font-weight="800" fill="#059669" letter-spacing="1">PREMIUM MPV</text>
+  
+  <rect x="440" y="24" width="130" height="28" rx="14" fill="#dcfce7" />
+  <circle cx="456" cy="38" r="5" fill="#16a34a" />
+  <text x="468" y="43" font-family="'Segoe UI', Roboto, sans-serif" font-size="11" font-weight="700" fill="#15803d">TERSEDIA</text>
+
+  <ellipse cx="300" cy="275" rx="220" ry="16" fill="#64748b" opacity="0.35" />
+  
+  <g filter="url(#shadow2)">
+    <path d="M 90 235 C 85 215, 95 195, 125 190 L 180 178 C 210 130, 255 110, 335 110 L 425 110 C 465 110, 495 145, 515 180 L 525 210 C 532 223, 525 243, 505 247 L 455 247 C 450 215, 420 190, 385 190 C 350 190, 320 215, 315 247 L 210 247 C 205 215, 175 190, 140 190 C 105 190, 75 215, 70 247 Z" fill="url(#carBody2)" stroke="#94a3b8" stroke-width="2" />
+    <path d="M 215 170 L 245 125 C 255 120, 280 120, 335 120 L 415 120 C 445 120, 465 140, 485 170 Z" fill="url(#glassGrad2)" />
+    <line x1="330" y1="120" x2="325" y2="170" stroke="#1e293b" stroke-width="4" />
+    
+    <path d="M 210 198 Q 310 208 475 190" fill="none" stroke="#94a3b8" stroke-width="2" opacity="0.6" />
+    <rect x="350" y="200" width="28" height="6" rx="3" fill="#334155" />
+    <rect x="250" y="200" width="28" height="6" rx="3" fill="#334155" />
+
+    <polygon points="510,195 528,202 522,218 505,214" fill="#fef08a" stroke="#eab308" stroke-width="1.5" />
+    <path d="M 95 202 L 110 200 L 107 220 L 91 216 Z" fill="#ef4444" />
+    <path d="M 490 233 L 525 235 C 528 243, 520 247, 508 247 Z" fill="#10b981" />
+
+    <g transform="translate(385, 247)">
+      <circle cx="0" cy="0" r="36" fill="#0f172a" />
+      <circle cx="0" cy="0" r="25" fill="#475569" stroke="#e2e8f0" stroke-width="3" />
+      <circle cx="0" cy="0" r="12" fill="#1e293b" />
+      <line x1="0" y1="-20" x2="0" y2="20" stroke="#ffffff" stroke-width="2.5" />
+      <line x1="-20" y1="0" x2="20" y2="0" stroke="#ffffff" stroke-width="2.5" />
+      <circle cx="0" cy="0" r="5" fill="#10b981" />
+    </g>
+    <g transform="translate(140, 247)">
+      <circle cx="0" cy="0" r="36" fill="#0f172a" />
+      <circle cx="0" cy="0" r="25" fill="#475569" stroke="#e2e8f0" stroke-width="3" />
+      <circle cx="0" cy="0" r="12" fill="#1e293b" />
+      <line x1="0" y1="-20" x2="0" y2="20" stroke="#ffffff" stroke-width="2.5" />
+      <line x1="-20" y1="0" x2="20" y2="0" stroke="#ffffff" stroke-width="2.5" />
+      <circle cx="0" cy="0" r="5" fill="#10b981" />
+    </g>
+  </g>
+
+  <rect x="30" y="298" width="540" height="40" rx="8" fill="#ffffff" opacity="0.95" stroke="#e2e8f0" stroke-width="1" />
+  <text x="45" y="323" font-family="'Segoe UI', Roboto, sans-serif" font-size="14" font-weight="700" fill="#1e293b">Toyota Innova Zenix 2.0 V</text>
+  <text x="555" y="323" font-family="'Segoe UI', Roboto, sans-serif" font-size="12" font-weight="600" fill="#64748b" text-anchor="end">7 Penumpang • Bensin • Otomatis CVT</text>
+</svg>

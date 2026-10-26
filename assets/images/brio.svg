@@ -1,0 +1,57 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 360" width="600" height="360">
+  <defs>
+    <linearGradient id="bgGrad3" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#fffbeb" />
+      <stop offset="100%" stop-color="#fef3c7" />
+    </linearGradient>
+    <linearGradient id="carBody3" x1="0%" y1="30%" x2="100%" y2="70%">
+      <stop offset="0%" stop-color="#fde047" />
+      <stop offset="100%" stop-color="#eab308" />
+    </linearGradient>
+    <linearGradient id="glassGrad3" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#38bdf8" stop-opacity="0.85" />
+      <stop offset="100%" stop-color="#0369a1" stop-opacity="0.95" />
+    </linearGradient>
+    <filter id="shadow3" x="-10%" y="-10%" width="120%" height="130%">
+      <feDropShadow dx="0" dy="10" stdDeviation="8" flood-color="#0f172a" flood-opacity="0.25" />
+    </filter>
+  </defs>
+
+  <rect width="600" height="360" rx="16" fill="url(#bgGrad3)"/>
+  <rect x="30" y="24" width="130" height="28" rx="14" fill="#d97706" opacity="0.15" />
+  <text x="42" y="43" font-family="'Segoe UI', Roboto, sans-serif" font-size="12" font-weight="800" fill="#d97706" letter-spacing="1">CITY CAR</text>
+  
+  <rect x="420" y="24" width="150" height="28" rx="14" fill="#fee2e2" />
+  <circle cx="436" cy="38" r="5" fill="#dc2626" />
+  <text x="448" y="43" font-family="'Segoe UI', Roboto, sans-serif" font-size="11" font-weight="700" fill="#b91c1c">TIDAK TERSEDIA</text>
+
+  <ellipse cx="300" cy="275" rx="200" ry="16" fill="#64748b" opacity="0.35" />
+  
+  <!-- Hatchback Body -->
+  <g filter="url(#shadow3)">
+    <path d="M 125 235 C 120 215, 130 195, 155 190 L 205 180 C 230 135, 270 120, 335 120 L 415 120 C 445 120, 475 150, 495 185 L 505 210 C 512 223, 508 243, 490 247 L 440 247 C 435 215, 405 190, 370 190 C 335 190, 305 215, 300 247 L 220 247 C 215 215, 185 190, 150 190 C 125 190, 105 215, 100 247 Z" fill="url(#carBody3)" stroke="#ca8a04" stroke-width="2" />
+    <path d="M 225 175 L 255 130 C 265 125, 280 125, 335 125 L 400 125 C 425 125, 445 145, 465 175 Z" fill="url(#glassGrad3)" />
+    <line x1="325" y1="125" x2="320" y2="175" stroke="#1e293b" stroke-width="4" />
+    
+    <rect x="335" y="202" width="26" height="6" rx="3" fill="#334155" />
+    <polygon points="490,200 508,207 502,223 485,219" fill="#fef08a" stroke="#ca8a04" stroke-width="1.5" />
+    <path d="M 115 207 L 130 205 L 127 225 L 111 221 Z" fill="#ef4444" />
+
+    <g transform="translate(370, 247)">
+      <circle cx="0" cy="0" r="34" fill="#1e293b" />
+      <circle cx="0" cy="0" r="22" fill="#64748b" stroke="#cbd5e1" stroke-width="3" />
+      <circle cx="0" cy="0" r="10" fill="#334155" />
+      <circle cx="0" cy="0" r="4" fill="#eab308" />
+    </g>
+    <g transform="translate(150, 247)">
+      <circle cx="0" cy="0" r="34" fill="#1e293b" />
+      <circle cx="0" cy="0" r="22" fill="#64748b" stroke="#cbd5e1" stroke-width="3" />
+      <circle cx="0" cy="0" r="10" fill="#334155" />
+      <circle cx="0" cy="0" r="4" fill="#eab308" />
+    </g>
+  </g>
+
+  <rect x="30" y="298" width="540" height="40" rx="8" fill="#ffffff" opacity="0.95" stroke="#e2e8f0" stroke-width="1" />
+  <text x="45" y="323" font-family="'Segoe UI', Roboto, sans-serif" font-size="14" font-weight="700" fill="#1e293b">Honda Brio Satya E CVT</text>
+  <text x="555" y="323" font-family="'Segoe UI', Roboto, sans-serif" font-size="12" font-weight="600" fill="#64748b" text-anchor="end">5 Penumpang • Bensin • Otomatis</text>
+</svg>

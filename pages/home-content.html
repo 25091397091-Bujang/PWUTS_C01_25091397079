@@ -1,0 +1,198 @@
+<!-- ===================================================================
+     KONTEN HALAMAN BERANDA (HOME)
+     Bagian dari Layout Utama (Item 2.a) - Rental Mobil Autorent
+     =================================================================== -->
+
+<div class="ajax-fade-in">
+  <!-- Hero Section -->
+  <section class="hero-section">
+    <div class="container">
+      <div class="row align-items-center">
+        <div class="col-lg-7">
+          <div class="hero-badge">
+            <i class="bi bi-shield-check-fill text-warning"></i> ARMADA TERVERIFIKASI &amp; SIAP JALAN
+          </div>
+          <h1 class="hero-title">Sewa Mobil Nyaman, Cepat &amp; Terpercaya</h1>
+          <p class="hero-subtitle">
+            Temukan kendaraan terbaik untuk perjalanan bisnis dan liburan keluarga Anda dengan tarif transparan per 24 jam. Tanpa ribet registrasi akun!
+          </p>
+          <div class="d-flex flex-wrap gap-3 pt-2">
+            <a href="#cek-status" class="btn btn-warning btn-lg fw-bold px-4 text-dark shadow-sm ajax-link" data-page="cek-status">
+              <i class="bi bi-search me-1"></i> Cek Status Booking (2.b)
+            </a>
+            <a href="#form-mobil" class="btn btn-outline-light btn-lg fw-bold px-4 shadow-sm ajax-link" data-page="form-mobil">
+              <i class="bi bi-plus-circle me-1"></i> Kelola Mobil Admin (2.c)
+            </a>
+          </div>
+        </div>
+        <div class="col-lg-5 mt-4 mt-lg-0">
+          <div class="hero-stats-card">
+            <div class="d-flex align-items-center justify-content-between mb-3 border-bottom border-secondary pb-3">
+              <div>
+                <span class="text-uppercase text-light small fw-bold tracking-wider">Total Armada Tersedia</span>
+                <div class="hero-stats-number" id="home-total-available">14 Unit</div>
+              </div>
+              <div class="p-3 bg-primary bg-opacity-25 rounded-circle text-primary">
+                <i class="bi bi-car-front-fill fs-1 text-info"></i>
+              </div>
+            </div>
+            <div class="row text-center g-2">
+              <div class="col-4">
+                <div class="bg-white bg-opacity-10 p-2 rounded">
+                  <div class="fs-4 fw-bold text-warning">4</div>
+                  <div class="small text-light">Kategori</div>
+                </div>
+              </div>
+              <div class="col-4">
+                <div class="bg-white bg-opacity-10 p-2 rounded">
+                  <div class="fs-4 fw-bold text-success">24 Jam</div>
+                  <div class="small text-light">Min. Durasi</div>
+                </div>
+              </div>
+              <div class="col-4">
+                <div class="bg-white bg-opacity-10 p-2 rounded">
+                  <div class="fs-4 fw-bold text-info">100%</div>
+                  <div class="small text-light">Single Vendor</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Filter & Pencarian Bar (Sesuai WF-1 Proposal Halaman 34) -->
+  <div class="container">
+    <div class="filter-card">
+      <div class="row g-3 align-items-center">
+        <div class="col-md-4">
+          <label class="form-label small fw-bold text-muted mb-1">
+            <i class="bi bi-search me-1"></i> Pencarian Unit Kendaraan
+          </label>
+          <input type="text" id="filter-search-input" class="form-control form-control-custom" placeholder="Cari misal: Avanza, Zenix, Pajero..." />
+        </div>
+        <div class="col-md-3">
+          <label class="form-label small fw-bold text-muted mb-1">
+            <i class="bi bi-grid-fill me-1"></i> Kategori Kelas
+          </label>
+          <select id="filter-category-select" class="form-select form-select-custom">
+            <option value="">Semua Kategori</option>
+            <option value="MPV">MPV Keluarga</option>
+            <option value="SUV">SUV Tangguh</option>
+            <option value="City Car">City Car Ringkas</option>
+            <option value="Sedan">Sedan Mewah</option>
+          </select>
+        </div>
+        <div class="col-md-3">
+          <label class="form-label small fw-bold text-muted mb-1">
+            <i class="bi bi-check-circle-fill me-1"></i> Status Ketersediaan
+          </label>
+          <select id="filter-status-select" class="form-select form-select-custom">
+            <option value="">Semua Status</option>
+            <option value="Available">Available (Tersedia)</option>
+            <option value="Unavailable">Unavailable (Tidak Tersedia)</option>
+          </select>
+        </div>
+        <div class="col-md-2 d-flex align-items-end pt-3 pt-md-0">
+          <button id="btn-reset-filter" class="btn btn-outline-secondary w-100 fw-bold py-2" title="Reset Filter">
+            <i class="bi bi-arrow-counterclockwise me-1"></i> Reset
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Vehicle Catalog Section -->
+  <section class="py-5">
+    <div class="container">
+      <div class="d-flex justify-content-between align-items-center mb-4 flex-wrap gap-2">
+        <div>
+          <h2 class="h3 fw-bold text-dark mb-1">Daftar Pilihan Kendaraan</h2>
+          <p class="text-muted small mb-0">Silakan pilih armada terbaik sesuai kebutuhan perjalanan Anda.</p>
+        </div>
+        <div class="d-flex align-items-center gap-2">
+          <span class="badge bg-primary px-3 py-2" id="catalog-count-badge">Menampilkan 8 Kendaraan</span>
+        </div>
+      </div>
+
+      <!-- Vehicle Grid -->
+      <div class="row g-4" id="vehicle-grid-container">
+        <!-- Injected via JavaScript / app.js based on proposal database -->
+      </div>
+    </div>
+  </section>
+
+  <!-- Keunggulan Autorent Section -->
+  <section class="py-5 bg-white border-top border-bottom border-light">
+    <div class="container">
+      <div class="text-center mb-5">
+        <span class="badge bg-primary bg-opacity-10 text-primary fw-bold px-3 py-2 rounded-pill mb-2">KEUNGGULAN KAMI</span>
+        <h2 class="fw-bold">Mengapa Memilih Autorent?</h2>
+        <p class="text-muted">Standar pelayanan penyewaan kendaraan profesional dengan transparansi penuh.</p>
+      </div>
+
+      <div class="row g-4">
+        <div class="col-md-3">
+          <div class="card h-100 border-0 bg-light p-4 rounded-4 text-center">
+            <div class="fs-1 text-primary mb-3">
+              <i class="bi bi-person-x-fill"></i>
+            </div>
+            <h5 class="fw-bold">Tanpa Wajib Akun</h5>
+            <p class="small text-muted mb-0">Penyewa dapat langsung memesan sebagai Guest tanpa formulir registrasi yang berbelit.</p>
+          </div>
+        </div>
+        <div class="col-md-3">
+          <div class="card h-100 border-0 bg-light p-4 rounded-4 text-center">
+            <div class="fs-1 text-success mb-3">
+              <i class="bi bi-clock-history"></i>
+            </div>
+            <h5 class="fw-bold">Tarif Kelipatan 24 Jam</h5>
+            <p class="small text-muted mb-0">Perhitungan durasi sewa adil dan transparan per siklus 24 jam penuh tanpa biaya tersembunyi.</p>
+          </div>
+        </div>
+        <div class="col-md-3">
+          <div class="card h-100 border-0 bg-light p-4 rounded-4 text-center">
+            <div class="fs-1 text-warning mb-3">
+              <i class="bi bi-qr-code-scan"></i>
+            </div>
+            <h5 class="fw-bold">Kode Booking Unik</h5>
+            <p class="small text-muted mb-0">Setiap pemesanan mendapatkan kode unik 8 karakter untuk pelacakan status transaksi secara real-time.</p>
+          </div>
+        </div>
+        <div class="col-md-3">
+          <div class="card h-100 border-0 bg-light p-4 rounded-4 text-center">
+            <div class="fs-1 text-danger mb-3">
+              <i class="bi bi-shield-check"></i>
+            </div>
+            <h5 class="fw-bold">Armada Prima &amp; Terawat</h5>
+            <p class="small text-muted mb-0">Semua unit melalui inspeksi kelayakan jalan dan pembersihan berkala sebelum diserahkan.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Quick Info Banner Anggota 3 -->
+  <section class="py-4 bg-light">
+    <div class="container">
+      <div class="alert alert-primary d-flex align-items-center justify-content-between flex-wrap gap-2 mb-0 rounded-4 shadow-sm">
+        <div class="d-flex align-items-center gap-3">
+          <div class="fs-2 text-primary">
+            <i class="bi bi-info-circle-fill"></i>
+          </div>
+          <div>
+            <h6 class="fw-bold mb-1">Catatan Pengerjaan UTS (Anggota 3 - Aby Putra Mahendra / NIM: 25091397079):</h6>
+            <div class="small text-muted">
+              Halaman ini merupakan layout utama (2.a). Navigasi ke <strong>Item 2.b (Cek Status Booking)</strong> dan <strong>Item 2.c (Form Data Mobil Admin)</strong> dimuat secara asinkron menggunakan teknik AJAX tanpa reload halaman.
+            </div>
+          </div>
+        </div>
+        <div class="d-flex gap-2">
+          <a href="#cek-status" class="btn btn-sm btn-primary fw-bold px-3 ajax-link" data-page="cek-status">Buka 2.b</a>
+          <a href="#form-mobil" class="btn btn-sm btn-dark fw-bold px-3 ajax-link" data-page="form-mobil">Buka 2.c</a>
+        </div>
+      </div>
+    </div>
+  </section>
+</div>

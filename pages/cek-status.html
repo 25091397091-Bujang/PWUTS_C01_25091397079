@@ -1,0 +1,191 @@
+<!-- ===================================================================
+     HALAMAN ITEM 2.B: CEK STATUS BOOKING (WF-6 PROPOSAL)
+     Pencarian Status Pemesanan dengan Kode Booking Unik
+     Pengerjaan Anggota 3: Aby Putra Mahendra (NIM: 25091397079)
+     =================================================================== -->
+
+<div class="ajax-fade-in py-4">
+  <div class="container">
+    <!-- Breadcrumb & Header Title -->
+    <nav aria-label="breadcrumb">
+      <ol class="breadcrumb">
+        <li class="breadcrumb-item"><a href="#beranda" class="ajax-link" data-page="home-content">Beranda</a></li>
+        <li class="breadcrumb-item active" aria-current="page">Cek Status Pemesanan (Item 2.b)</li>
+      </ol>
+    </nav>
+
+    <div class="row justify-content-center">
+      <div class="col-lg-10">
+        
+        <!-- Search Card (Sesuai WF-6) -->
+        <div class="status-search-card mb-4">
+          <div class="d-flex align-items-center justify-content-between flex-wrap gap-2 mb-3">
+            <div>
+              <span class="badge bg-primary bg-opacity-10 text-primary fw-bold px-3 py-1 rounded-pill mb-1">
+                MODUL PUBLIK / PELACAKAN PESANAN (WF-06)
+              </span>
+              <h2 class="h3 fw-bold text-dark mb-1">Cek Status Pemesanan Kendaraan</h2>
+              <p class="text-muted small mb-0">
+                Pantau status pemesanan rental mobil Anda secara langsung tanpa perlu login akun. Masukkan kode unik booking yang Anda terima saat reservasi.
+              </p>
+            </div>
+            <div class="text-end">
+              <span class="badge bg-secondary text-white py-2 px-3 rounded-pill font-monospace">FR-BOOK-009 &amp; 010</span>
+            </div>
+          </div>
+
+          <!-- Form Input Kode Booking -->
+          <form id="form-cek-booking" novalidate>
+            <div class="mb-3">
+              <label for="input-booking-code" class="form-label fw-bold text-dark">
+                Masukkan Kode Booking <span class="text-danger">*</span>
+              </label>
+              <div class="input-group">
+                <span class="input-group-text bg-light text-muted">
+                  <i class="bi bi-ticket-perforated-fill fs-5"></i>
+                </span>
+                <input 
+                  type="text" 
+                  id="input-booking-code" 
+                  class="form-control form-control-lg font-monospace text-uppercase fw-bold" 
+                  placeholder="Contoh: RNT-X9K2M" 
+                  maxlength="12"
+                  autocomplete="off"
+                  required
+                />
+                <button type="submit" id="btn-submit-cek" class="btn btn-primary btn-lg fw-bold px-4">
+                  <i class="bi bi-search me-1"></i> Cari / Cek Status
+                </button>
+              </div>
+              <div id="booking-code-feedback" class="text-danger small mt-1 d-none">
+                <i class="bi bi-exclamation-triangle-fill me-1"></i> Mohon masukkan format kode booking yang valid (8 karakter alfanumerik kapital).
+              </div>
+            </div>
+          </form>
+
+          <!-- Quick Test Badges for Demonstrating Features during Evaluation -->
+          <div class="quick-codes-section pt-3 border-top border-light">
+            <div class="d-flex align-items-center justify-content-between flex-wrap gap-2 mb-2">
+              <span class="small fw-bold text-muted">
+                <i class="bi bi-lightning-charge-fill text-warning me-1"></i> Klik Sampel Kode untuk Demonstrasi Simulasi Cepat:
+              </span>
+              <span class="small text-muted fst-italic">Berdasarkan Data Kasus Proposal Bab 3 &amp; 4</span>
+            </div>
+            <div class="d-flex flex-wrap gap-2">
+              <button type="button" class="quick-code-chip btn btn-sm" data-code="RNT-X9K2M">
+                <span class="badge bg-success me-1">Confirmed</span> RNT-X9K2M (Avanza - Lunas)
+              </button>
+              <button type="button" class="quick-code-chip btn btn-sm" data-code="RNT-64TRL">
+                <span class="badge bg-warning text-dark me-1">Pending</span> RNT-64TRL (Zenix - Review Admin)
+              </button>
+              <button type="button" class="quick-code-chip btn btn-sm" data-code="RNT-C7MYQ">
+                <span class="badge bg-danger me-1">Rejected</span> RNT-C7MYQ (Brio - Upload Ulang)
+              </button>
+              <button type="button" class="quick-code-chip btn btn-sm" data-code="RNT-W1Y3Z">
+                <span class="badge bg-primary me-1">Completed</span> RNT-W1Y3Z (Ertiga - Selesai Sewa)
+              </button>
+              <button type="button" class="quick-code-chip btn btn-sm" data-code="RNT-EXPR8">
+                <span class="badge bg-secondary me-1">Expired</span> RNT-EXPR8 (Xenia - Kedaluwarsa)
+              </button>
+              <button type="button" class="quick-code-chip btn btn-sm" data-code="RNT-INVALID">
+                <span class="badge bg-dark me-1">Simulasi 404</span> RNT-99999 (Tidak Ada)
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Dynamic Output Container for State 1 (Found) or State 2 (Not Found) -->
+        <div id="booking-result-placeholder">
+          <div class="card border-0 shadow-sm p-4 text-center bg-white rounded-4">
+            <div class="py-4">
+              <i class="bi bi-search text-muted opacity-50" style="font-size: 3.5rem;"></i>
+              <h5 class="fw-bold text-muted mt-3">Silakan Masukkan Kode Booking Anda</h5>
+              <p class="text-muted small mx-auto" style="max-width: 480px;">
+                Gunakan input di atas atau klik salah satu tombol sampel simulasi kode booking untuk melihat visualisasi status reservasi secara detail.
+              </p>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Modal Interaktif: Simulasi Unggah Ulang Bukti Pembayaran (FR-PAY-004 & FR-PAY-005) -->
+<div class="modal fade" id="modalUploadBukti" tabindex="-1" aria-labelledby="modalUploadBuktiLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content border-0 shadow-lg rounded-4">
+      <div class="modal-header bg-dark text-white">
+        <h5 class="modal-title fw-bold" id="modalUploadBuktiLabel">
+          <i class="bi bi-cloud-arrow-up-fill text-warning me-2"></i> Unggah Ulang Bukti Pembayaran
+        </h5>
+        <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <form id="form-reupload-bukti" novalidate>
+        <div class="modal-body p-4">
+          <div class="alert alert-warning small mb-3">
+            <i class="bi bi-exclamation-circle-fill me-1"></i>
+            Bukti pembayaran sebelumnya ditolak oleh admin. Pastikan nominal transfer sesuai dan foto struk/m-banking terlihat jelas. (Maks. 10MB JPG/PNG sesuai FR-PAY-002).
+          </div>
+          <div class="mb-3">
+            <label class="form-label small fw-bold">Pilih File Bukti Pembayaran Baru <span class="text-danger">*</span></label>
+            <input type="file" id="reupload-file-input" class="form-control" accept="image/png, image/jpeg, image/jpg" required />
+            <div class="form-text">Format yang diterima: JPG, JPEG, PNG (Maksimal 10 MB).</div>
+          </div>
+          <div class="mb-3">
+            <label class="form-label small fw-bold">Catatan Pengirim (Opsional)</label>
+            <input type="text" id="reupload-notes-input" class="form-control" placeholder="Contoh: Transfer lewat m-Banking BCA a.n Ahmad Fauzi" />
+          </div>
+          <div id="reupload-preview-box" class="p-2 border rounded text-center bg-light d-none">
+            <img id="reupload-preview-img" src="" alt="Preview Bukti" class="img-fluid rounded" style="max-height: 180px;" />
+          </div>
+        </div>
+        <div class="modal-footer bg-light">
+          <button type="button" class="btn btn-secondary fw-bold" data-bs-dismiss="modal">Batal</button>
+          <button type="submit" id="btn-submit-reupload" class="btn btn-primary fw-bold px-4">
+            <i class="bi bi-send-fill me-1"></i> Kirim Bukti Pembayaran
+          </button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
+
+<!-- Modal Interaktif: Hubungi Bantuan CS (FR-PAY-006) -->
+<div class="modal fade" id="modalBantuanCS" tabindex="-1" aria-labelledby="modalBantuanCSLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content border-0 shadow-lg rounded-4">
+      <div class="modal-header bg-primary text-white">
+        <h5 class="modal-title fw-bold" id="modalBantuanCSLabel">
+          <i class="bi bi-headset me-2"></i> Kontak Layanan Bantuan Autorent
+        </h5>
+        <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body p-4 text-center">
+        <div class="fs-1 text-success mb-2">
+          <i class="bi bi-whatsapp"></i>
+        </div>
+        <h5 class="fw-bold mb-1">Customer Care 24 Jam</h5>
+        <p class="text-muted small mb-3">Butuh bantuan terkait verifikasi pembayaran atau konfirmasi unit sewa? Tim operasional kami siap membantu Anda.</p>
+        <div class="bg-light p-3 rounded-3 text-start mb-3 border">
+          <div class="d-flex justify-content-between mb-1">
+            <span class="small text-muted">WhatsApp Hotline:</span>
+            <span class="small fw-bold text-dark">+62 812-3456-7890</span>
+          </div>
+          <div class="d-flex justify-content-between mb-1">
+            <span class="small text-muted">Email Support:</span>
+            <span class="small fw-bold text-dark">cs@autorent.co.id</span>
+          </div>
+          <div class="d-flex justify-content-between">
+            <span class="small text-muted">Kantor Layanan:</span>
+            <span class="small fw-bold text-dark">Jl. Ketintang, Surabaya</span>
+          </div>
+        </div>
+        <a href="https://wa.me/6281234567890?text=Halo%20Admin%20Autorent,%20saya%20butuh%20bantuan%20terkait%20booking" target="_blank" class="btn btn-success fw-bold w-100 py-2">
+          <i class="bi bi-whatsapp me-1"></i> Hubungi via WhatsApp Resmi
+        </a>
+      </div>
+    </div>
+  </div>
+</div>
