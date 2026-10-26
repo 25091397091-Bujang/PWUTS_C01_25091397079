@@ -4,8 +4,8 @@
 ---
 
 ### IDENTITAS MAHASISWA & PENGERJAAN TUGAS
-* **Nama Lengkap** : Aby Putra Mahendra
-* **NIM** : 25091397079
+* **Nama Lengkap** : Muchammad Bujang Nasril
+* **NIM** : 25091397091
 * **Program Studi** : D4 Manajemen Informatika
 * **Jurusan / Fakultas** : Program Vokasi, Universitas Negeri Surabaya
 * **Kelas / Angkatan** : D4 MI 2025 / 2026
@@ -30,7 +30,7 @@ Website ini dikembangkan berdasarkan dokumen proposal resmi:
 
 Berdasarkan kesepakatan pembagian tugas kelompok:
 
-| Bagian Halaman | Anggota 1 | Anggota 2 | Anggota 3 (Saya - Aby Putra Mahendra) |
+| Bagian Halaman | Anggota 1 | Anggota 2 | Anggota 3 (Saya - Muchammad Bujang Nasril) |
 | :--- | :--- | :--- | :--- |
 | **1. Homepage (Item 2.a)** | Homepage Rental Mobil | Homepage Rental Mobil | **Homepage Rental Mobil (Responsive Web Design + AJAX Navigation)** |
 | **2. Halaman 2.b** | Katalog Mobil — pencarian dan filter mobil | Detail Mobil — informasi dan simulasi pemilihan mobil | **Cek Status Booking — pencarian status dengan kode booking unik (WF-6)** |
@@ -149,7 +149,7 @@ Aplikasi web ini dirancang sangat fleksibel dan dapat dijalankan dengan dua cara
 
 ### Cara 1: Menggunakan Web Server Lokal (Direkomendasikan)
 1. **VS Code Live Server**:
-   * Buka folder `PWUTS_C01_25091397079` di VS Code.
+   * Buka folder `PWUTS_C01_25091397091` di VS Code.
    * Klik kanan pada file `index.html` dan pilih **"Open with Live Server"**.
    * Website akan terbuka di peramban pada alamat `http://127.0.0.1:5500/index.html`.
 2. **PHP Built-in Server**:
@@ -159,8 +159,8 @@ Aplikasi web ini dirancang sangat fleksibel dan dapat dijalankan dengan dua cara
      ```
    * Buka peramban dan akses: `http://localhost:8000`
 3. **XAMPP / Laragon**:
-   * Salin folder `PWUTS_C01_25091397079` ke direktori `htdocs` (misal: `C:/xampp/htdocs/PWUTS_C01_25091397079`).
-   * Buka peramban dan akses: `http://localhost/PWUTS_C01_25091397079/`
+   * Salin folder `PWUTS_C01_25091397091` ke direktori `htdocs` (misal: `C:/xampp/htdocs/PWUTS_C01_25091397091`).
+   * Buka peramban dan akses: `http://localhost/PWUTS_C01_25091397091/`
 
 ### Cara 2: Membuka Langsung File HTML (Offline / Double Click)
 * Anda dapat langsung membuka file `index.html` dengan cara klik ganda (*double click*) di File Explorer peramban modern (Google Chrome, Microsoft Edge, Mozilla Firefox).
