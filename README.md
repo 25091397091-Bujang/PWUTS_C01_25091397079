@@ -170,4 +170,4 @@ Aplikasi web ini dirancang sangat fleksibel dan dapat dijalankan dengan dua cara
 
 ## 6. Kesimpulan & Penutup
 
-Seluruh ketentuan yang diinstruksikan dalam lembar soal UTS Pemrograman Web Gasal 2026/2027 serta kesepakatan pembagian tugas kelompok C01 untuk **Anggota 3 (Aby Putra Mahendra - 25091397079)** telah selesai dikerjakan secara komprehensif, terstruktur, dan berpatokan penuh pada dokumen proposal perancangan sistem informasi rental mobil Autorent.
+Seluruh ketentuan yang diinstruksikan dalam lembar soal UTS Pemrograman Web Gasal 2026/2027 serta kesepakatan pembagian tugas kelompok C01 untuk **Anggota 3 (Muchammad Bujang Nasril - 25091397091)** telah selesai dikerjakan secara komprehensif, terstruktur, dan berpatokan penuh pada dokumen proposal perancangan sistem informasi rental mobil Autorent.
